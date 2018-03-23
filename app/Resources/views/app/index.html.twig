@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1> Affichage de tous les articles</h1>
+
+    {% for type, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">titre de l'article</th>
+            <th scope="col"></th>
+
+        </tr>
+        </thead>
+        <tbody>
+    {% for art in articles %}
+        <tr class="table-active">
+
+            <td>{{ art.id }}</td>
+            <td>{{ art.nom }}</td>
+            <td>
+
+                <a href="{{ path ('panier',{'id':art.id}) }}"><button type="button" class="btn btn-success">ajouter au panier</button></a>
+                <a href="{{ path ('article_display',{'id':art.id}) }}"><button type="button" class="btn btn-info" >voir le détail</button></a>
+                <a href="{{ path ('article_delete',{'id':art.id}) }}"><button type="button" class="btn btn-danger">Supprimer</button></a>
+
+
+            </td>
+        </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+
+{% endblock %}

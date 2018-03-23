@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1> Affichage du panier</h1>
+
+    {% for value in app.session.get('panier') %}
+        <p>{{ value }}</p>
+    {% endfor %}
+{% endblock %}

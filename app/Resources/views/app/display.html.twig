@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1> Affichage d'un article</h1>
+
+    <div class="jumbotron">
+        <h4 style="font-weight:bold;">Titre de l'article : {{ article.nom }} </h4>
+        <p>{{ article.createdAt | date('d/m/Y') }}</p>
+
+        <ul>
+            <li>
+                <p> {{ article.description }}</p>
+                <p> Prix : {{ article.prix }}</p>
+                <p> Stock restant : {{ article.stockRestant }}</p>
+            </li>
+        </ul>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+AppBundle\Entity\Commande:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CommandeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        createdAt:
+            type: datetimetz
+        numCommande:
+            type: integer
+    manyToMany:
+        articles:
+            targetEntity: Article
+            inversedBy: commandes
+    manyToOne:
+        Utilisateur:
+            targetEntity: Utilisateur
+            inversedBy: commandes
+    lifecycleCallbacks: {  }

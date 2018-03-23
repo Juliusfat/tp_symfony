@@ -1,0 +1,40 @@
+AppBundle\Entity\Utilisateur:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\UtilisateurRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        created:
+            type: datetimetz
+        email:
+            type: string
+            length: 255
+        nom:
+            type: string
+            length: 255
+        prenom:
+            type: string
+            length: 255
+        codePostal:
+            type: string
+            length: 5
+        telephone:
+            type: string
+            length: '15'
+        username:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+
+    oneToMany:
+        commandes:
+            targetEntity: Commande
+            mappedBy: utilisateur
+    lifecycleCallbacks: {  }
